@@ -16,7 +16,12 @@ local plugins = {
         -- see: https://github.com/zbirenbaum/copilot.lua
         "zbirenbaum/copilot.lua",
         event = "InsertEnter", -- Load this plugin when entering insert mode
-        opts = require("custom.configs.overrides").copilot -- Custom configuration for copilot
+        opts = {
+            -- Possible configurable fields can be found on:
+            -- https://github.com/zbirenbaum/copilot.lua#setup-and-configuration
+            suggestion = {enable = false},
+            panel = {enable = false}
+        }
     }, {
         -- Integration of copilot.lua with nvim-cmp for autocompletion
         -- see: https://gist.github.com/ianchesal/93ba7897f81618ca79af01bc413d0713
