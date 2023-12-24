@@ -1,108 +1,81 @@
 local plugins = {
     { -- Nord theme
+        -- Description: Nord color scheme for Neovim
         -- see: https://github.com/shaunsingh/nord.nvim
         "shaunsingh/nord.nvim"
     }, { -- A small (Neo)Vim wrapper for zoxide.
+        -- Description: Integrates zoxide, a smarter cd command, with Neovim
         -- see: https://github.com/nanotee/zoxide.vim
         "nanotee/zoxide.vim"
-    },
-    { -- An extension for telescope.nvim that allows you operate zoxide within Neovim.
+    }, { -- An extension for telescope.nvim to use zoxide within Neovim.
+        -- Description: Allows navigating directories using zoxide through Telescope
         -- see: https://github.com/jvgrootveld/telescope-zoxide
         "jvgrootveld/telescope-zoxide"
     }, {
-        -- Fully featured & enhanced replacement for copilot.vim complete with API for interacting with Github Copilot
+        -- Enhanced replacement for copilot.vim with additional features
         -- see: https://github.com/zbirenbaum/copilot.lua
         "zbirenbaum/copilot.lua",
-        event = "InsertEnter",
-        opts = require("custom.configs.overrides").copilot
+        event = "InsertEnter", -- Load this plugin when entering insert mode
+        opts = require("custom.configs.overrides").copilot -- Custom configuration for copilot
     }, {
-        -- copilot.lua + copilot-cmp in NvChad
+        -- Integration of copilot.lua with nvim-cmp for autocompletion
         -- see: https://gist.github.com/ianchesal/93ba7897f81618ca79af01bc413d0713
         "hrsh7th/nvim-cmp",
         dependencies = {
             {
-                "zbirenbaum/copilot-cmp",
+                "zbirenbaum/copilot-cmp", -- Plugin dependency for copilot-cmp
                 config = function()
-                    require("copilot_cmp").setup()
+                    require("copilot_cmp").setup() -- Setup for copilot-cmp
                 end
             }
         },
         opts = {
             sources = {
-                {name = "nvim_lsp", group_index = 2},
-                {name = "copilot", group_index = 2},
-                {name = "luasnip", group_index = 2},
-                {name = "buffer", group_index = 2},
-                {name = "nvim_lua", group_index = 2},
-                {name = "path", group_index = 2}
+                {name = "nvim_lsp", group_index = 2}, -- LSP source for completion
+                {name = "copilot", group_index = 2}, -- Copilot source for completion
+                {name = "luasnip", group_index = 2}, -- LuaSnip source for snippets
+                {name = "buffer", group_index = 2}, -- Buffer source for completion
+                {name = "nvim_lua", group_index = 2}, -- Neovim Lua API source for completion
+                {name = "path", group_index = 2} -- File path source for completion
             }
         }
-    }, -- {
-    --     "dreamsofcode-io/ChatGPT.nvim",
-    --     event = "VeryLazy",
-    --     dependencies = {"MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim"},
-    --     config = function()
-    --         require("chatgpt").setup({
-    --             async_api_key_cmd = "pass show api/openai"
-    --         })
-    --     end
-    -- }, -- Plugins for Node.js development
-    {
-        "rcarriga/nvim-dap-ui",
-        event = "VeryLazy",
-        dependencies = "mfussenegger/nvim-dap",
+    }, {
+        "neovim/nvim-lspconfig", -- Basic configurations for the Neovim LSP client
         config = function()
-            local dap = require("dap")
-            local dapui = require("dapui")
-            require("dapui").setup()
-            dap.listeners.after.event_initialized["dapui_config"] = function()
-                dapui.open()
-            end
-            dap.listeners.before.event_terminated["dapui_config"] = function()
-                dapui.close()
-            end
-            dap.listeners.before.event_exited["dapui_config"] = function()
-                dapui.close()
-            end
+            require "plugins.configs.lspconfig" -- Load default LSP configurations
+            require "custom.configs.lspconfig" -- Load custom LSP configurations
         end
     }, {
-        "mfussenegger/nvim-dap",
-        config = function()
-            require "custom.configs.dap"
-            require("core.utils").load_mappings("dap")
-        end
-    }, -- null-ls is deprecated
-    -- see: https://github.com/jose-elias-alvarez/null-ls.nvim/issues/1621
-    -- {
-    --   "jose-elias-alvarez/null-ls.nvim",
-    --   event = "VeryLazy",
-    --   opts = function()
-    --     return require "custom.configs.null-ls"
-    --   end,
-    -- },
-    {
-        "mhartington/formatter.nvim",
-        event = "VeryLazy",
-        opts = function() return require "custom.configs.formatter" end
-    }, {
-        "mfussenegger/nvim-lint",
-        event = "VeryLazy",
-        config = function() require "custom.configs.lint" end
-    }, {
-        "williamboman/mason.nvim",
+        "williamboman/mason.nvim", -- Plugin for managing LSP servers, formatters, linters, etc.
         opts = {
             ensure_installed = {
-                "eslint-lsp", "js-debug-adapter", "prettier",
+                "eslint-lsp", "prettierd", -- Specified LSP servers to install
                 "typescript-language-server"
             }
         }
     }, {
-        "neovim/nvim-lspconfig",
+        "nvimtools/none-ls.nvim", -- Plugin for additional language support via null-ls
+        event = "VeryLazy", -- Load this plugin on a custom event named 'VeryLazy'
+        opts = function() return require "custom.configs.null-ls" end -- Custom configuration for null-ls
+    }, {
+        "windwp/nvim-ts-autotag", -- Plugin for automatically closing and renaming HTML/XML tags
+        ft = {"javascript", "javascriptreact", "typescript", "typescriptreact"}, -- File types where this plugin is active
+        config = function() require("nvim-ts-autotag").setup() end -- Setup function for nvim-ts-autotag
+    }, {
+        "nvim-treesitter/nvim-treesitter", -- Treesitter plugin for better syntax highlighting
+        opts = function()
+            local opts = require "plugins.configs.treesitter"
+            opts.ensure_installed = {
+                "lua", "javascript", "typescript", "tsx", "css"
+            } -- Specify languages for Treesitter
+            return opts
+        end
+    }, {
+        'NvChad/nvim-colorizer.lua', -- Plugin for colorizing color codes in Neovim
         config = function()
-            require "plugins.configs.lspconfig"
-            require "custom.configs.lspconfig"
+            require("colorizer").setup() -- Setup function for nvim-colorizer
         end
     }
 }
 
-return plugins
+return plugins -- Return the configured plugins
