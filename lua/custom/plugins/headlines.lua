@@ -20,5 +20,5 @@ return {
                 quote_highlight = "Quote",
             },
         })
-    end,
-},
+    end
+}
