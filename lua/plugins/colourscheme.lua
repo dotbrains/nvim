@@ -11,11 +11,6 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            require("nord").setup({
-                transparent = is_transparent,
-                italic_comments = true,
-                hide_fillchars = true,
-            })
             vim.cmd("colorscheme nord")
         end,
     },
