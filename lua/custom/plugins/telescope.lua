@@ -21,7 +21,7 @@ return {
             },
             defaults = {
                 hidden = true,
-                prompt_prefix = "   ",
+                prompt_prefix = " >  ",
                 selection_caret = "  ",
                 entry_prefix = "  ",
 

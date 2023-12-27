@@ -29,9 +29,13 @@ local opts = {
     end
 }
 
-vim.keymap.set("n", "<leader>gf", function() 
+vim.keymap.set(
+    "n",  -- Mode (Normal)
+    "<leader>gf", -- Keymap SPACE + gf (global format)
+    function() -- Action
         vim.lsp.buf.format({ async = true }) 
-    end
+    end, 
+    {} -- Options
 ) -- Format the current buffer using SPACE + gf
 
 return opts
