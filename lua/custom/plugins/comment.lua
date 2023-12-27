@@ -1,5 +1,5 @@
 return {
-    "numToStr/comment.nvim",
+    "numToStr/Comment.nvim",
     event = "BufReadPre",
     lazy = false,
     config = function()
