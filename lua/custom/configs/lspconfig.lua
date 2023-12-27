@@ -6,7 +6,15 @@ local lspconfig = require("lspconfig")
 local servers = {
     "tsserver",
     "eslint",
-    "cssls"
+    "cssls",
+    "html",
+    "jsonls",
+    "yamlls",
+    "dockerls",
+    "bashls",
+    "vimls",
+    "pyright",
+    "java_language_server",
 }
 
 for _, lsp in ipairs(servers) do
