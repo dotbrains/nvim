@@ -18,6 +18,12 @@ Install _neovim_. I prefer to use `brew`:
 brew install nvim
 ```
 
+Install _lua Language Server_ for _neovim_.
+
+```bash
+brew intall lua-language-server
+```
+
 Clone this repository to `~/.config/nvim`:
 
 ```bash
