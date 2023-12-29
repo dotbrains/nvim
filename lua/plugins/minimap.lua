@@ -1,13 +1,16 @@
-local config = function()
-    local minimap = require("mini.map")
+local mapvimkey = require("util.keymapper").mapvimkey
 
-    minimap.setup()
+local init = function()
+    vim.g.minimap_auto_start = 1
+    vim.g.minimap_auto_start_win_enter = 1
 end
 
 return {
-    "echasnovski/mini.map", 
-    version = '*',
+    "wfxr/minimap.vim", 
+    version = '*' 
     lazy = false,
-    cmd = 'MiniMap',
-    config = config
+    init = init,
+    keys = {
+        mapvimkey("<leader>mm", ":MinimapToggle", "MinimapToggle"),
+    }
 }
