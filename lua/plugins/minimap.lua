@@ -6,6 +6,14 @@ local config = function()
     
     vim.g.minimap_highlight_range = 1
     vim.g.minimap_highlight_search = 1
+
+    -- Start minimap when vim starts
+    vim.api.nvim_create_autocmd("User", {
+        pattern = "VimEnter",
+        callback = function()
+            vim.cmd("Minimap")
+        end,
+    })
 end
 
 return {
