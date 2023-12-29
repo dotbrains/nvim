@@ -14,6 +14,6 @@ return {
     "wfxr/minimap.vim",
     config = config,
     keys = {
-        mapvimkey("n", "<leader>mm", ":MinimapToggle", "MinimapToggle"),
+        mapvimkey("<leader>mm", ":MinimapToggle", "MinimapToggle"),
     }
 }
