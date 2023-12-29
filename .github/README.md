@@ -17,7 +17,7 @@ brew install nvim
 Install some dependencies for _neovim_.
 
 ```bash
-brew intall lua-language-server ripgrep fd
+brew intall lua-language-server ripgrep fd code-minimap
 ```
 
 Clone this repository to `~/.config/nvim`:
