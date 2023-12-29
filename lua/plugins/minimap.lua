@@ -8,12 +8,9 @@ local config = function()
     vim.g.minimap_highlight_search = 1
 
     -- Start minimap when vim starts
-    vim.api.nvim_create_autocmd("User", {
-        pattern = "VimEnter",
-        callback = function()
-            vim.cmd("Minimap")
-        end,
-    })
+    vim.api.nvim_exec([[
+      autocmd VimEnter * Minimap
+    ]], false)
 end
 
 return {
