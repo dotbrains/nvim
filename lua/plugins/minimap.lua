@@ -7,7 +7,7 @@ end
 
 return {
     "wfxr/minimap.vim", 
-    version = '*' 
+    version = '*',
     lazy = false,
     init = init,
     keys = {
