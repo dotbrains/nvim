@@ -6,7 +6,7 @@ end
 
 return {
     "echasnovski/mini.nvim", 
-    version = '*' 
+    version = '*',
     lazy = false,
     config = config
 }
