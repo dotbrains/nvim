@@ -2,13 +2,14 @@ local mapvimkey = require("util.keymapper").mapvimkey
 
 local config = function()
 	local telescope = require("telescope")
+	local actions = require('telescope.actions')
 
 	telescope.setup({
 		defaults = {
 			mappings = {
 				i = {
-					["<C-j>"] = "move_selection_next",
-					["<C-k>"] = "move_selection_previous",
+					["<C-j>"] = actions.move_selection_next,
+					["<C-k>"] = actions.move_selection_previous,
 				},
 			},
 		},
@@ -40,9 +41,14 @@ local config = function()
 		}
 	})
 
-	-- To get fzf loaded and working with telescope, you need to call
+	-- To get extensions loaded and working with telescope, you need to call
 	-- load_extension, somewhere after setup function:
-	require('telescope').load_extension('fzf')
+	
+	local extensions = {'fzf', 'harpoon', 'git_worktree'}
+
+	for _, extension in ipairs(extensions) do
+		telescope.load_extension(extension)
+	end
 end
 
 return {
