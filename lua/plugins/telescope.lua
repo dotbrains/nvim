@@ -16,17 +16,17 @@ local config = function()
 		pickers = {
 			-- themes: dropdown | ivy | cursor
 			find_files = {
-				theme = "ivy",
+				theme = "dropdown",
 				previewer = true,
 				hidden = true,
 				prompt_prefix = "🔍 ",
 			},
 			live_grep = {
-				theme = "ivy",
+				theme = "dropdown",
 				previewer = true,
 			},
 			buffers = {
-				theme = "ivy",
+				theme = "dropdown",
 				previewer = true,
 			},
 		},
