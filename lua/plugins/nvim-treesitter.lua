@@ -12,7 +12,6 @@ local config = function()
 			"BufNewFile",
 		},
 		ensure_installed = {
-			"rust",
 			"markdown",
 			"json",
 			"javascript",
@@ -24,10 +23,8 @@ local config = function()
 			"bash",
 			"lua",
 			"dockerfile",
-			"solidity",
 			"gitignore",
 			"python",
-			"vue",
 			"svelte",
 			"toml",
 		},
