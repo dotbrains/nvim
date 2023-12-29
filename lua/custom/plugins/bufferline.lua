@@ -10,12 +10,10 @@ return {
             bold = true,
         })
         
-        require("bufferline").setup({
-            options = {
-                separator_style = "thin",
-            },
-            highlights = highlights,
-        })
+        options = {
+            separator_style = "thin",
+        },
+        highlights = highlights,
 
         -- Slant BufferLine separator
         -- local highlights = require("nord").bufferline.highlights({
