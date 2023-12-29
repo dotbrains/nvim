@@ -48,7 +48,7 @@ local config = function()
 	-- To get extensions loaded and working with telescope, you need to call
 	-- load_extension, somewhere after setup function:
 	
-	local extensions = {'fzf', 'harpoon', 'git_worktree'}
+	local extensions = {'fzf', 'harpoon', 'git_worktree', 'noice'}
 
 	for _, extension in ipairs(extensions) do
 		telescope.load_extension(extension)
@@ -70,6 +70,7 @@ return {
 			"nvim-telescope/telescope-fzf-native.nvim",
 			"ThePrimeagen/harpoon",
 			"ThePrimeagen/git-worktree.nvim",
+			"folke/noice.nvim"
 		},
 		config = config,
 		keys = {
