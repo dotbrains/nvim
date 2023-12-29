@@ -1,3 +1,4 @@
 return {
-    "nordtheme/vim"
+    "shaunsingh/nord.nvim",
+    lazy = false
 }
