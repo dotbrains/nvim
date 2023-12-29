@@ -8,5 +8,5 @@ return {
     "echasnovski/mini.nvim", 
     version = '*' 
     lazy = false,
-    config = config,
+    config = config
 }
