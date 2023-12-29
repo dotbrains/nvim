@@ -31,7 +31,7 @@ local config = function()
 			-- themes: dropdown | ivy | cursor
 			colorscheme = {
 				enable_preview = true,
-			}
+			},
 			find_files = {
 				theme = "dropdown",
 				previewer = true,
