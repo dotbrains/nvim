@@ -5,7 +5,7 @@ local config = function()
 end
 
 return {
-    "echasnovski/mini.nvim", 
+    "echasnovski/mini.map", 
     version = '*',
     lazy = false,
     config = config
