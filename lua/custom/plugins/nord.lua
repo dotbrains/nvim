@@ -1,6 +1,9 @@
 return {
-    -- Nord theme
-    -- Description: Nord color scheme for Neovim
-    -- see: https://github.com/shaunsingh/nord.nvim
-    "shaunsingh/nord.nvim",
+    "gbprod/nord.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+        require("nord").setup({})
+        vim.cmd.colorscheme("nord")
+    end
 }
