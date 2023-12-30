@@ -13,7 +13,7 @@ end
 return {
     'VonHeikemen/lsp-zero.nvim', 
     branch = 'v3.x',
-    config = false,
+    config = config,
     keys = {
         mapvimkey("<leader>l", "LspInfo", "Lsp Info"),
         mapvimkey("<leader>I", "LspInstall", "Lsp Install"),
