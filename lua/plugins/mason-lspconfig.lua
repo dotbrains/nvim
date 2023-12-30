@@ -17,13 +17,14 @@ local opts = {
 local config = function()
 	local mason_lspconfig = require("mason-lspconfig")
 	local lsp_zero = require("lsp-zero")
+	local lspconfig = require("lspconfig")
 
 	mason_lspconfig.setup({
 		handlers = {
 			lsp_zero.default_setup,
 			lua_ls = function()
 				local lua_opts = lsp_zero.nvim_lua_ls()
-				require('lspconfig').lua_ls.setup(lua_opts)
+				lspconfig.lua_ls.setup(lua_opts)
 			end,
 		}
 	})
@@ -34,5 +35,9 @@ return {
 	opts = opts,
 	config = config,
 	event = "BufReadPre",
-	dependencies = "williamboman/mason.nvim",
+	dependencies = {
+		"williamboman/mason.nvim",
+		"VonHeikemen/lsp-zero.nvim",
+		"neovim/nvim-lspconfig",
+	},
 }
