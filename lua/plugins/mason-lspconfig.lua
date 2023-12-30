@@ -12,19 +12,27 @@ local opts = {
 	},
 
 	automatic_installation = true,
-
-	handlers = {
-		lsp_zero.default_setup,
-		lua_ls = function()
-			local lua_opts = lsp_zero.nvim_lua_ls()
-			require('lspconfig').lua_ls.setup(lua_opts)
-		end,
-	}
 }
+
+local config = function()
+	local mason_lspconfig = require("mason-lspconfig")
+	local lsp_zero = require("lsp-zero")
+
+	mason_lspconfig.setup({
+		handlers = {
+			lsp_zero.default_setup,
+			lua_ls = function()
+				local lua_opts = lsp_zero.nvim_lua_ls()
+				require('lspconfig').lua_ls.setup(lua_opts)
+			end,
+		}
+	})
+end
 
 return {
 	"williamboman/mason-lspconfig.nvim",
 	opts = opts,
+	config = config,
 	event = "BufReadPre",
 	dependencies = "williamboman/mason.nvim",
 }
