@@ -18,7 +18,5 @@ return {
 	"williamboman/mason-lspconfig.nvim",
 	opts = opts,
 	event = "BufReadPre",
-	dependencies = {
-		"williamboman/mason.nvim",
-	},
+	dependencies = "williamboman/mason.nvim",
 }

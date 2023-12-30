@@ -70,7 +70,7 @@ return {
 			"nvim-telescope/telescope-fzf-native.nvim",
 			"ThePrimeagen/harpoon",
 			"ThePrimeagen/git-worktree.nvim",
-			"folke/noice.nvim",
+			"folke/noice.nvim"
 		},
 		config = config,
 		keys = {
