@@ -6,7 +6,7 @@ return {
     branch = 'harpoon2',
     dependencies = {
         'nvim-telescope/telescope.nvim'
-    }
+    },
     config = function()
         local harpoon = require('harpoon')
 
