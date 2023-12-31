@@ -1,25 +1,16 @@
--- Add 'LuaRocks' path to package.path and package.cpath
--- This is needed to load LuaRocks modules such as' lfs'
-local luapath = "/opt/homebrew/bin/luarocks"
-package.path = package.path .. ";" .. luapath .. "/share/lua/5.1/?.lua"
-package.cpath = package.cpath .. ";" .. luapath .. "/lib/lua/5.1/?.so"
-
--- Load LuaFileSystem
-local lfs = require('luafilesystem')
-
 -- get all subdirectories and Lua files from given directory
 function get_plugin_paths(directory)
     local plugin_paths = {}
 
-    for filename in lfs.dir(directory) do
-        if filename ~= "." and filename ~= ".." then
-            local path = directory .. '/' .. filename
-            local attr = lfs.attributes(path)
+    -- Use Neovim's vim.loop.fs_scandir to iterate over directory contents
+    local scan = vim.loop.fs_scandir(directory)
+    if scan then
+        while true do
+            local filename, type = vim.loop.fs_scandir_next(scan)
+            if not filename then break end
 
-            -- Check if it's a directory or a Lua file
-            if attr.mode == 'directory' then
-                table.insert(plugin_paths, path)
-            elseif string.match(filename, "%.lua$") then  -- Check if the file is a Lua file
+            if type == "directory" or string.match(filename, "%.lua$") then
+                local path = directory .. '/' .. filename
                 table.insert(plugin_paths, path)
             end
         end
