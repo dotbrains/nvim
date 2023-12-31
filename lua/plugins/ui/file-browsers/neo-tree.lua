@@ -14,8 +14,9 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
     lazy = false,
-	config = function()
-        mapvimkey("<C-n>", "NeoTree filesystem reveal left", "Show NeoTree on the left")
-        mapvimkey("<leader>bf", "NeoTree buffers reveal float", "Show NeoTree in a floating window")
-	end,
+	keys = {
+		-- normal mode mappings
+        mapvimkey("<C-n>", "NeoTree filesystem reveal left")
+        mapvimkey("<leader>bf", "NeoTree buffers reveal float")
+	}
 }

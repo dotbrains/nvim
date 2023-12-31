@@ -16,11 +16,13 @@ local config = function()
             null_ls.builtins.diagnostics.eslint_d,
         },
     })
-
-    mapvimkey("<leader>gf", "Format buffer", "Format buffer")
 end
 
 return {
 	"nvimtools/none-ls.nvim",
 	config = config,
+    keys = {
+        -- normal mode mappings
+        mapvimkey("<leader>gf", "Format buffer")
+    }
 }

@@ -25,6 +25,7 @@ return {
     config = config,
     opts = opts,
     keys = {
-        mapvimkey("<leader>t", "lua require('FTerm').toggle()", "Toggle FTerm"),
+        -- normal mode mappings
+        mapvimkey("<leader>t", "lua require('FTerm').toggle()"),
     }
 }

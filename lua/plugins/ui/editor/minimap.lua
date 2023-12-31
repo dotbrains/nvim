@@ -16,6 +16,7 @@ return {
     lazy = false,
     config = config,
     keys = {
-        mapvimkey("<leader>mm", ":MinimapToggle", "MinimapToggle"),
+        -- normal mode mappings
+        mapvimkey("<leader>mm", ":MinimapToggle"),
     }
 }

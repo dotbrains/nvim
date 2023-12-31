@@ -6,16 +6,14 @@ local mapvimkey = require("util.keymapper").mapvimkey
 return {
 	"pocco81/true-zen.nvim",
 	lazy = false,
-	config = function()
-		local api = vim.api
-
+	keys = {
 		-- normal mode mappings
-		mapvimkey("<leader>zn", "TZNarrow", "Narrow")
-		mapvimkey("<leader>zf", "TZFocus", "Focus")
-		mapvimkey("<leader>zm", "TZMinimalist", "Minimalist")
-		mapvimkey("<leader>za", "TZAtaraxis", "Ataraxis")
+		mapvimkey("<leader>zn", "TZNarrow")
+		mapvimkey("<leader>zf", "TZFocus")
+		mapvimkey("<leader>zm", "TZMinimalist")
+		mapvimkey("<leader>za", "TZAtaraxis")
 
 		-- visual mode mappings
-		mapvimkey("<leader>zn", ":'<,'>TZNarrow", "Narrow", "v")
-	end
+		mapvimkey("<leader>zn", ":'<,'>TZNarrow", "v")
+	}
 }

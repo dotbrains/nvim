@@ -4,9 +4,10 @@ return {
     "christoomey/vim-tmux-navigator",
     event = "VeryLazy",
     keys = {
-        mapvimkey("<C-h>", "TmuxNavigateLeft", "Navigate Window Left"),
-        mapvimkey("<C-j>", "TmuxNavigateDown", "Navigate Window Down"),
-        mapvimkey("<C-k>", "TmuxNavigateUp", "Navigate Window Up"),
-        mapvimkey("<C-l>", "TmuxNavigateRight", "Navigate Window Right"),
+        -- normal mode mappings
+        mapvimkey("<C-h>", "TmuxNavigateLeft"),
+        mapvimkey("<C-j>", "TmuxNavigateDown"),
+        mapvimkey("<C-k>", "TmuxNavigateUp"),
+        mapvimkey("<C-l>", "TmuxNavigateRight"),
     }
 }

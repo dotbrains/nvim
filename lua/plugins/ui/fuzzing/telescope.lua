@@ -78,11 +78,12 @@ return {
 		},
 		config = config,
 		keys = {
-			mapvimkey("<leader>fk", "Telescope keymaps", "Show Keymaps"),
-			mapvimkey("<leader>fh", "Telescope help_tags", "Show Help Tags"),
-			mapvimkey("<leader>ff", "Telescope find_files", "Find Files"),
-			mapvimkey("<leader>fg", "Telescope live_grep", "Live Grep"),
-			mapvimkey("<leader>fb", "Telescope buffers", "Find Buffers"),
+			-- normal mode mappings
+			mapvimkey("<leader>fk", "Telescope keymaps"),
+			mapvimkey("<leader>fh", "Telescope help_tags"),
+			mapvimkey("<leader>ff", "Telescope find_files"),
+			mapvimkey("<leader>fg", "Telescope live_grep"),
+			mapvimkey("<leader>fb", "Telescope buffers"),
 		},
 	}
 }
