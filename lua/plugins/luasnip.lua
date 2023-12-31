@@ -53,16 +53,12 @@ return {
                         }
                     ),
 
-                    sources = cmp.config.sources(
-                        {
-                            {name = "nvim_lsp"}, -- lsp
-                            {name = "luasnip"} -- snippets
-                        },
-                        {
-                            { name = "path" }, -- file system paths
-                            {name = "buffer"} -- text within current buffer
-                        },
-                    ),
+                    sources = cmp.config.sources({
+                        {name = "nvim_lsp"}, -- lsp
+                        {name = "luasnip"} -- snippets
+                        {name = "path" }, -- file system paths
+                        {name = "buffer"} -- text within current buffer
+                }),
 
                     formatting = {
                         -- configure lspkind for vs-code like icons
