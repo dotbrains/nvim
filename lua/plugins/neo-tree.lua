@@ -16,7 +16,6 @@ return {
     lazy = false,
 	keys = {
 		-- normal mode mappings
-        mapvimkey("<C-n>", "NeoTree filesystem reveal left"),
-        mapvimkey("<leader>bf", "NeoTree buffers reveal float")
+        mapvimkey("<C-n>", "NeoTree"),
 	}
 }
