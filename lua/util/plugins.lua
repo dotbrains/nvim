@@ -5,7 +5,7 @@ package.path = package.path .. ";" .. luapath .. "/share/lua/5.1/?.lua"
 package.cpath = package.cpath .. ";" .. luapath .. "/lib/lua/5.1/?.so"
 
 -- Load LuaFileSystem
-local lfs = require('lfs')
+local lfs = require('luafilesystem')
 
 -- get all subdirectories and Lua files from given directory
 function get_plugin_paths(directory)
