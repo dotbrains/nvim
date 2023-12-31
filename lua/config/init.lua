@@ -1,5 +1,3 @@
-local get_plugin_paths = require("util.plugins").get_plugin_paths
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -19,14 +17,7 @@ require("config.keymaps")
 require("config.autocmds")
 
 -- get plugins directory
-local plugins_directory = vim.fn.stdpath("config") .. "/lua/" .. "plugins"
-
--- get all plugin paths 
-local plugin_paths = get_plugin_paths(plugins_directory)
-print("plugin_paths: ", vim.inspect(plugin_paths))
-
--- add plugin paths to plugins table
-local plugins = plugin_paths
+local plugins = vim.fn.stdpath("config") .. "/lua/" .. "plugins"
 
 local opts = {
 	defaults = {
