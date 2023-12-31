@@ -6,16 +6,18 @@
 local mapvimkey = require("util.keymapper").mapvimkey
 
 return {
-	"nvim-neo-tree/neo-tree.nvim",
-	branch = "v3.x",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"nvim-tree/nvim-web-devicons",
-		"MunifTanjim/nui.nvim",
-	},
-    lazy = false,
-	keys = {
-		-- normal mode mappings
-        mapvimkey("<C-n>", "Neotree"),
-	}
+	-- disabled in favor of 'nvim-tree.lua'
+
+	-- "nvim-neo-tree/neo-tree.nvim",
+	-- branch = "v3.x",
+	-- dependencies = {
+	-- 	"nvim-lua/plenary.nvim",
+	-- 	"nvim-tree/nvim-web-devicons",
+	-- 	"MunifTanjim/nui.nvim",
+	-- },
+    -- lazy = false,
+	-- keys = {
+	-- 	-- normal mode mappings
+    --     mapvimkey("<C-n>", "Neotree"),
+	-- }
 }
