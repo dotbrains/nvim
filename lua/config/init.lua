@@ -19,7 +19,7 @@ require("config.keymaps")
 require("config.autocmds")
 
 -- get plugins directory
-local plugins_directory = vim.fn.stdpath("config") .. "/lua/" .. plugins
+local plugins_directory = vim.fn.stdpath("config") .. "/lua/" .. "plugins"
 
 -- get all plugin paths 
 local plugin_paths = get_plugin_paths(plugins_directory)
