@@ -16,8 +16,7 @@ require("config.options")
 require("config.keymaps")
 require("config.autocmds")
 
--- get plugins directory
-local plugins = vim.fn.stdpath("config") .. "/lua/" .. "plugins"
+local plugins = "plugins"
 
 local opts = {
 	defaults = {
