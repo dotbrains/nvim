@@ -1,3 +1,10 @@
+-- Add 'LuaRocks' path to package.path and package.cpath
+-- This is needed to load LuaRocks modules such as' lfs'
+local luapath = "/opt/homebrew/bin/luarocks"
+package.path = package.path .. ";" .. luapath .. "/share/lua/5.1/?.lua"
+package.cpath = package.cpath .. ";" .. luapath .. "/lib/lua/5.1/?.so"
+
+-- Load LuaFileSystem
 local lfs = require('lfs')
 
 -- get all subdirectories and Lua files from given directory
