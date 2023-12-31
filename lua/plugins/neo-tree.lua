@@ -16,6 +16,6 @@ return {
     lazy = false,
 	keys = {
 		-- normal mode mappings
-        mapvimkey("<C-n>", "NeoTree"),
+        mapvimkey("<C-n>", "Neotree"),
 	}
 }
