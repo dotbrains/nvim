@@ -8,10 +8,10 @@ return {
 	lazy = false,
 	keys = {
 		-- normal mode mappings
-		mapvimkey("<leader>zn", "TZNarrow")
-		mapvimkey("<leader>zf", "TZFocus")
-		mapvimkey("<leader>zm", "TZMinimalist")
-		mapvimkey("<leader>za", "TZAtaraxis")
+		mapvimkey("<leader>zn", "TZNarrow"),
+		mapvimkey("<leader>zf", "TZFocus"),
+		mapvimkey("<leader>zm", "TZMinimalist"),
+		mapvimkey("<leader>za", "TZAtaraxis"),
 
 		-- visual mode mappings
 		mapvimkey("<leader>zn", ":'<,'>TZNarrow", "v")
