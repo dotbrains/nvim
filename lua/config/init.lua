@@ -23,6 +23,7 @@ local plugins_directory = vim.fn.stdpath("config") .. "/lua/" .. plugins
 
 -- get all plugin paths 
 local plugin_paths = get_plugin_paths(plugins_directory)
+print("plugin_paths: ", vim.inspect(plugin_paths))
 
 -- add plugin paths to plugins table
 local plugins = plugin_paths
@@ -49,4 +50,4 @@ local opts = {
 	},
 }
 
-require("lazy").setup(plugins, opts)
+-- require("lazy").setup(plugins, opts)
