@@ -15,6 +15,7 @@ return {
     "wfxr/minimap.vim", 
     lazy = false,
     config = config,
+    cmd = "Minimap",
     keys = {
         -- normal mode mappings
         mapvimkey("<leader>mm", ":MinimapToggle"),
