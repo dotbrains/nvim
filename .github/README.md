@@ -23,7 +23,7 @@ brew install lua-language-server ripgrep fd code-minimap deno
 Clone this repository to `~/.config/nvim`:
 
 ```bash
-git clone https://github.com/nicholasadamou/nvim ~/.config/nvim
+git clone https://github.com/dotbrains/nvim ~/.config/nvim
 ```
 
 Then, open `neovim` and wait for the plugins to install.
