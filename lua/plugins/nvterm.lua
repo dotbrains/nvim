@@ -20,5 +20,24 @@ return {
         for _, mapping in ipairs(mappings) do
             vim.keymap.set(mapping[1], mapping[2], mapping[3], opts)
         end
+
+        -- Function to disable space as leader key
+        local function disable_space_leader()
+            vim.api.nvim_set_keymap('n', '<leader>', '<nop>', { noremap = true, silent = true })
+        end
+
+        -- Function to restore space as leader key
+        local function restore_space_leader()
+            vim.api.nvim_set_keymap('n', '<leader>', ' ', { noremap = true, silent = true })
+        end
+
+        -- Autocommand to disable space when NvTerm is opened
+        vim.cmd [[
+          augroup NvTermKeymap
+            autocmd!
+            autocmd User NvTermOpen lua disable_space_leader()
+            autocmd User NvTermClose lua restore_space_leader()
+          augroup END
+        ]]
     end,
 }

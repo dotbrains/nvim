@@ -13,6 +13,25 @@ local config = function()
             y = 0.5
         }
     })
+
+    -- Function to disable space as leader key
+    local function disable_space_leader()
+        vim.api.nvim_set_keymap('n', '<leader>', '<nop>', { noremap = true, silent = true })
+    end
+
+    -- Function to restore space as leader key
+    local function restore_space_leader()
+        vim.api.nvim_set_keymap('n', '<leader>', ' ', { noremap = true, silent = true })
+    end
+
+    -- Autocommand to disable space when FTerm is opened
+    vim.cmd [[
+      augroup FTermKeymap
+        autocmd!
+        autocmd User FTermOpen lua disable_space_leader()
+        autocmd User FTermClose lua restore_space_leader()
+      augroup END
+    ]]
 end
 
 local opts = {
