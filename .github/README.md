@@ -1,6 +1,6 @@
 # nvim
 
-This is my personal configuration for [neovim](https://neovim.io/). 
+This is my personal configuration for [neovim](https://neovim.io/).
 
 ## Why did I build this?
 
@@ -17,7 +17,17 @@ brew install nvim
 Install some dependencies for _neovim_.
 
 ```bash
-brew install lua-language-server ripgrep fd code-minimap deno
+brew install \
+    lazygit \
+    lua-language-server \
+    efm-langserver \
+    ripgrep \
+    fd \
+    code-minimap \
+    deno \
+    stylua \
+    google-java-format \
+    prettier
 ```
 
 Clone this repository to `~/.config/nvim`:
