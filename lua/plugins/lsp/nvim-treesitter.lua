@@ -4,9 +4,10 @@
 -- as highlighting based on it.
 -- see: https://github.com/nvim-treesitter/nvim-treesitter
 
-local config = function()
-  require("nvim-treesitter.configs").setup {
-    build = ":TSUpdate",
+return {
+  "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate",
+  opts = {
     -- Automatically install missing parsers when entering buffer
     -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
     auto_install = true,
@@ -16,10 +17,5 @@ local config = function()
     indent = {
       enable = true,
     },
-  }
-end
-
-return {
-  "nvim-treesitter/nvim-treesitter",
-  config = config,
+  },
 }

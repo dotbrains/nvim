@@ -6,6 +6,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-01-12
+
+### Added
+- **Plugin Import System** - Added explicit imports for all plugin categories in `init.lua`
+  - Improved plugin loading organization and clarity
+
+### Changed
+- **README Branding** - Updated README header to reflect new branding
+- **Leap.nvim Keymaps** - Replaced deprecated `add_default_mappings()` with explicit keybindings
+  - `s` for leap-forward
+  - `S` for leap-backward
+  - `gs` for leap-from-window
+- **LSP Config** - Updated TypeScript LSP from deprecated `tsserver` to `ts_ls`
+- **Treesitter Config** - Refactored to use lazy.nvim's `opts` pattern for cleaner configuration
+
+### Removed
+- **nvim-tree Keymaps** - Removed custom key mappings configuration (using defaults)
+
 ## [1.0.0] - 2026-01-12
 
 ### Added
