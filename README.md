@@ -1,5 +1,9 @@
 # 🚀 nvim
 
+[![CI](https://github.com/dotbrains/nvim/actions/workflows/ci.yml/badge.svg)](https://github.com/dotbrains/nvim/actions/workflows/ci.yml)
+[![Auto Update](https://github.com/dotbrains/nvim/actions/workflows/auto-update.yml/badge.svg)](https://github.com/dotbrains/nvim/actions/workflows/auto-update.yml)
+[![Release](https://github.com/dotbrains/nvim/actions/workflows/release.yml/badge.svg)](https://github.com/dotbrains/nvim/actions/workflows/release.yml)
+
 > A modern, organized, and feature-rich Neovim configuration built for productivity
 
 This is my personal configuration for [Neovim](https://neovim.io/), designed to provide a powerful yet maintainable development environment.
