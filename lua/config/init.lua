@@ -16,6 +16,14 @@ require("config.options")
 require("config.keymaps")
 require("config.autocmds")
 
+-- Initialize theme after plugins are loaded
+vim.api.nvim_create_autocmd("User", {
+	pattern = "LazyDone",
+	callback = function()
+		require("config.theme").init()
+	end,
+})
+
 local plugins = "plugins"
 
 local opts = {

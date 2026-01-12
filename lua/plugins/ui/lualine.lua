@@ -2,9 +2,10 @@
 -- see: https://github.com/nvim-lualine/lualine.nvim
 
 local config = function()
+	local theme_module = require("config.theme")
 	require("lualine").setup({
 		options = {
-			theme = "nord",
+			theme = theme_module.current_theme,
 		},
 	})
 end

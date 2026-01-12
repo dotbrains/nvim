@@ -51,3 +51,8 @@ api.nvim_set_keymap("n", "<leader>za", ":TZAtaraxis<CR>", {})
 -- Comments
 api.nvim_set_keymap("n", "<C-_>", "gtc", { noremap = false })
 api.nvim_set_keymap("v", "<C-_>", "goc", { noremap = false })
+
+-- Theme Switching
+vim.keymap.set("n", "<leader>tt", function()
+	require("config.theme").switch_theme()
+end, { desc = "Toggle theme", silent = true, noremap = true })

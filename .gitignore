@@ -1,9 +1,47 @@
+# Plugin directories
 plugin
 spell
 ftplugin
 syntax
+after
+
+# Lazy.nvim
+lazy-lock.json
+
+# LSP and tools
 coc-settings.json
 .luarc.json
-lazy-lock.json
-after
+.neoconf.json
+
+# Backup and swap files
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+*~
+
+# Undo files
+*.un~
+undodir/
+
+# Session files
+Session.vim
+.session
+
+# Tags
+tags
+tags.*
+
+# OS specific
 **/.DS_Store
+.DS_Store
+Thumbs.db
+
+# Debug logs
+*.log
+nvim.log
+
+# Local configuration
+.local.lua
+local.lua

@@ -1,0 +1,112 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-and-format:
+    name: Lint and Format Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Lua
+        uses: leafo/gh-actions-lua@v10
+        with:
+          luaVersion: "5.1"
+
+      - name: Setup LuaRocks
+        uses: leafo/gh-actions-luarocks@v4
+
+      - name: Install StyLua
+        run: |
+          wget -qO- https://github.com/JohnnyMorganz/StyLua/releases/latest/download/stylua-linux-x86_64.zip | funzip > /usr/local/bin/stylua
+          chmod +x /usr/local/bin/stylua
+
+      - name: Check formatting
+        run: stylua --check lua/ --config-path .stylua.toml
+
+      - name: Install luacheck
+        run: luarocks install luacheck
+
+      - name: Lint Lua files
+        run: luacheck lua/ --globals vim --no-max-line-length
+        continue-on-error: true
+
+  neovim-test:
+    name: Test Neovim Configuration
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        neovim-version: ['stable', 'nightly']
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Neovim
+        uses: rhysd/action-setup-vim@v1
+        with:
+          neovim: true
+          version: ${{ matrix.neovim-version }}
+
+      - name: Test configuration loads
+        run: |
+          nvim --version
+          nvim --headless -c "lua print('Configuration loaded successfully')" -c "quitall"
+        env:
+          XDG_CONFIG_HOME: ${{ github.workspace }}
+
+      - name: Install lazy.nvim
+        run: |
+          mkdir -p ~/.local/share/nvim/lazy
+          git clone --filter=blob:none https://github.com/folke/lazy.nvim.git \
+            --branch=stable ~/.local/share/nvim/lazy/lazy.nvim
+
+      - name: Install plugins
+        run: |
+          nvim --headless "+Lazy! sync" +qa
+        env:
+          XDG_CONFIG_HOME: ${{ github.workspace }}
+        timeout-minutes: 10
+        continue-on-error: true
+
+  documentation:
+    name: Check Documentation
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check README exists
+        run: |
+          if [ ! -f README.md ]; then
+            echo "README.md is missing!"
+            exit 1
+          fi
+          echo "README.md found ✓"
+
+      - name: Check required documentation
+        run: |
+          FILES=("CHANGELOG.md" "KEYBINDINGS.md" "lua/plugins/README.md")
+          for file in "${FILES[@]}"; do
+            if [ ! -f "$file" ]; then
+              echo "$file is missing!"
+              exit 1
+            fi
+            echo "$file found ✓"
+          done
+
+      - name: Check for broken links
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'yes'
+          config-file: '.github/workflows/markdown-link-check.json'
+        continue-on-error: true

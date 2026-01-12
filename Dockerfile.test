@@ -1,0 +1,43 @@
+FROM ubuntu:22.04
+
+# Set environment variables
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TERM=xterm-256color
+
+# Install base dependencies
+RUN apt-get update && \
+    apt-get install -y \
+        git \
+        curl \
+        sudo \
+        wget \
+        software-properties-common \
+        build-essential \
+        ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create a non-root user (optional, for more realistic testing)
+# Uncomment if you want to test as a regular user
+# RUN useradd -m -s /bin/bash testuser && \
+#     echo "testuser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+# USER testuser
+# WORKDIR /home/testuser
+
+# Clone the nvim configuration
+# Note: This will clone from the local directory if building locally
+# or from GitHub if specified
+COPY . /root/.config/nvim/
+
+# Run the installation script
+WORKDIR /root/.config/nvim
+RUN chmod +x install.sh
+
+# Note: For automated installation, you may want to modify install.sh
+# to accept a --yes flag, or pipe 'yes' to the script
+# For now, this Dockerfile expects manual testing
+
+# Set the working directory
+WORKDIR /root
+
+# Default command
+CMD ["/bin/bash"]
