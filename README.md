@@ -1,4 +1,4 @@
-# 🚀 nvim
+# 🧙🏼 nvim
 
 [![CI](https://github.com/dotbrains/nvim/actions/workflows/ci.yml/badge.svg)](https://github.com/dotbrains/nvim/actions/workflows/ci.yml)
 [![Auto Update](https://github.com/dotbrains/nvim/actions/workflows/auto-update.yml/badge.svg)](https://github.com/dotbrains/nvim/actions/workflows/auto-update.yml)
