@@ -14,6 +14,22 @@ jobs:
       contents: write
     
     steps:
+      - name: Wait for CI to pass
+        uses: lewagon/wait-on-check-action@v1.3.4
+        with:
+          ref: ${{ github.sha }}
+          check-name: 'Lint and Format Check'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+      
+      - name: Wait for Neovim tests
+        uses: lewagon/wait-on-check-action@v1.3.4
+        with:
+          ref: ${{ github.sha }}
+          check-name: 'Test Neovim Configuration (stable)'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+      
       - name: Checkout code
         uses: actions/checkout@v4
         with:
