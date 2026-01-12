@@ -1,23 +1,18 @@
-# GitHub Workflows & Templates
+# GitHub Actions Workflows
 
-This directory contains GitHub Actions workflows, issue templates, and pull request templates for automating repository maintenance and standardizing contributions.
+This document provides detailed information about the GitHub Actions workflows used in this repository.
 
-## 📁 Directory Structure
+> **See also:** [TEMPLATES.md](TEMPLATES.md) for issue and PR templates documentation.
+
+## 📁 Workflow Files
 
 ```
-.github/
-├── workflows/               # GitHub Actions workflows
-│   ├── ci.yml              # Continuous Integration
-│   ├── release.yml         # Automated releases
-│   ├── auto-update.yml     # Plugin updates
-│   ├── stale.yml           # Stale issue management
-│   └── markdown-link-check.json  # Link check config
-├── ISSUE_TEMPLATE/         # Issue templates
-│   ├── bug_report.md       # Bug report template
-│   └── feature_request.md  # Feature request template
-├── PULL_REQUEST_TEMPLATE.md # Pull request template
-├── LICENSE                 # Project license
-└── README.md              # This file
+.github/workflows/
+├── ci.yml                    # Continuous Integration
+├── release.yml               # Automated releases
+├── auto-update.yml           # Plugin updates
+├── stale.yml                 # Stale issue management
+└── markdown-link-check.json  # Link check config
 ```
 
 ## 🤖 Workflows
@@ -68,6 +63,7 @@ make test    # Test configuration
    - Updates CHANGELOG.md
 
 **Usage:**
+
 To create a new release:
 
 ```bash
@@ -153,67 +149,6 @@ git push origin v1.0.0
 
 ---
 
-## 📋 Issue Templates
-
-### Bug Report (`ISSUE_TEMPLATE/bug_report.md`)
-
-**Use when:** Reporting bugs or unexpected behavior
-
-**Includes:**
-- Description
-- Steps to reproduce
-- Expected vs actual behavior
-- Environment information
-- Health check output
-- Screenshots
-
-**Creating a bug report:**
-1. Go to Issues → New Issue
-2. Select "Bug Report" template
-3. Fill in all sections
-4. Add appropriate labels
-
----
-
-### Feature Request (`ISSUE_TEMPLATE/feature_request.md`)
-
-**Use when:** Suggesting new features or enhancements
-
-**Includes:**
-- Feature description
-- Problem statement
-- Proposed solution
-- Use cases
-- Implementation ideas
-
-**Creating a feature request:**
-1. Go to Issues → New Issue
-2. Select "Feature Request" template
-3. Describe the feature and use case
-4. Explain why it's valuable
-
----
-
-## 📝 Pull Request Template
-
-**Automatically applied** to all new pull requests.
-
-**Includes:**
-- Description and issue reference
-- Type of change checklist
-- Testing requirements
-- Environment information
-- Documentation updates checklist
-
-**Creating a PR:**
-1. Push your branch to GitHub
-2. Create pull request
-3. Template will auto-populate
-4. Fill in all sections
-5. Complete checklist before requesting review
-
----
-
 ## 🔧 Workflow Configuration
 
 ### Modifying Workflows
@@ -240,41 +175,7 @@ Or remove/rename the workflow file.
 1. Create new `.yml` file in `workflows/`
 2. Define triggers and jobs
 3. Test in a feature branch
-4. Document in this README
-
----
-
-## 🏷️ Labels
-
-Recommended labels for issues and PRs:
-
-**Type:**
-- `bug` - Something isn't working
-- `enhancement` - New feature or request
-- `documentation` - Documentation improvements
-- `question` - Further information requested
-
-**Priority:**
-- `critical` - Blocking issue
-- `high` - Important
-- `medium` - Normal priority
-- `low` - Nice to have
-
-**Status:**
-- `stale` - No activity
-- `wontfix` - Will not be addressed
-- `duplicate` - Already exists
-- `good first issue` - Good for newcomers
-
-**Category:**
-- `plugin` - Related to plugins
-- `theme` - Theme-related
-- `lsp` - LSP configuration
-- `keybinding` - Keybinding issue
-
-**Automated:**
-- `dependencies` - Dependency updates
-- `automated` - Created by automation
+4. Document in this file
 
 ---
 
@@ -315,32 +216,37 @@ If adding workflows that need secrets:
 
 ---
 
-## 📚 Resources
-
-- [GitHub Actions Documentation](https://docs.github.com/en/actions)
-- [Workflow Syntax](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
-- [Issue Templates Guide](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests)
-
----
-
 ## 🛠️ Troubleshooting
 
-**Workflow failing?**
+### Workflow Failing?
+
 1. Check the logs in Actions tab
 2. Verify all dependencies are correct
 3. Test locally with similar commands
 4. Check for breaking changes in actions
 
-**PR checks not running?**
+### PR Checks Not Running?
+
 1. Verify workflow file is on main branch
 2. Check if workflows are enabled
 3. Ensure proper permissions are set
 
-**Updates PR not created?**
+### Updates PR Not Created?
+
 1. Check workflow logs
 2. Verify no plugins were updated
 3. Check permissions for PR creation
 
 ---
 
-For more information, see [CONTRIBUTING.md](../CONTRIBUTING.md).
+## 📚 Resources
+
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)
+- [Workflow Syntax](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
+- [Actions Marketplace](https://github.com/marketplace?type=actions)
+
+---
+
+For issue and PR templates, see [TEMPLATES.md](TEMPLATES.md).
+
+For general contribution guidelines, see [CONTRIBUTING.md](../CONTRIBUTING.md).

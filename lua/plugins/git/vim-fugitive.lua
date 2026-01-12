@@ -2,6 +2,6 @@
 -- see: https://github.com/tpope/vim-fugitive
 
 return {
-	lazy = false,
-	"tpope/vim-fugitive",
+  lazy = false,
+  "tpope/vim-fugitive",
 }

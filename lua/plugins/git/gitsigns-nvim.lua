@@ -6,5 +6,5 @@ return {
   lazy = false,
   config = function()
     require("gitsigns").setup()
-  end
+  end,
 }

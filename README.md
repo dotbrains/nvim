@@ -187,19 +187,19 @@ You can test this configuration in a clean Ubuntu/Debian environment using Docke
 ```bash
 # Ubuntu 22.04
 docker run -it --rm ubuntu:22.04 bash -c "
-  apt-get update && 
-  apt-get install -y git curl sudo && 
-  git clone https://github.com/dotbrains/nvim /root/.config/nvim && 
-  cd /root/.config/nvim && 
+  apt-get update &&
+  apt-get install -y git curl sudo &&
+  git clone https://github.com/dotbrains/nvim /root/.config/nvim &&
+  cd /root/.config/nvim &&
   ./install.sh
 "
 
 # Debian 12
 docker run -it --rm debian:12 bash -c "
-  apt-get update && 
-  apt-get install -y git curl sudo && 
-  git clone https://github.com/dotbrains/nvim /root/.config/nvim && 
-  cd /root/.config/nvim && 
+  apt-get update &&
+  apt-get install -y git curl sudo &&
+  git clone https://github.com/dotbrains/nvim /root/.config/nvim &&
+  cd /root/.config/nvim &&
   ./install.sh
 "
 ```
@@ -309,13 +309,9 @@ Code is automatically formatted on save. To manually format:
 :checkhealth
 ```
 
-## 📸 Screenshots
-
-<!-- TODO: Add screenshots showing both themes -->
-
 ## 🤝 Contributing
 
-This is a personal configuration, but feel free to fork it and make it your own! 
+This is a personal configuration, but feel free to fork it and make it your own!
 
 Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for:
 - How to report bugs

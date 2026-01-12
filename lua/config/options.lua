@@ -30,19 +30,19 @@ opt.hidden = true
 opt.errorbells = false
 opt.swapfile = false
 opt.backup = false
-opt.undodir = vim.fn.expand("~/.vim/undodir")
+opt.undodir = vim.fn.expand "~/.vim/undodir"
 opt.undofile = true
 opt.backspace = "indent,eol,start"
 opt.splitright = true
 opt.splitbelow = true
 opt.autochdir = false
-opt.iskeyword:append("-")
+opt.iskeyword:append "-"
 opt.selection = "exclusive"
 opt.mouse = "a" -- The "a" stands for "all", which means mouse is enabled in all modes (Normal, Visual, Insert, Command-line).
-opt.clipboard:append("unnamedplus")
+opt.clipboard:append "unnamedplus"
 opt.modifiable = true
 opt.guicursor =
-	"n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+  "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 opt.encoding = "UTF-8"
 opt.showmode = false
 

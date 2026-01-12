@@ -54,5 +54,5 @@ api.nvim_set_keymap("v", "<C-_>", "goc", { noremap = false })
 
 -- Theme Switching
 vim.keymap.set("n", "<leader>tt", function()
-	require("config.theme").switch_theme()
+  require("config.theme").switch_theme()
 end, { desc = "Toggle theme", silent = true, noremap = true })

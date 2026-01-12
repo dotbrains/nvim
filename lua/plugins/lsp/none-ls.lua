@@ -4,25 +4,25 @@
 local mapvimkey = require("util.keymapper").mapvimkey
 
 local config = function()
-    local null_ls = require("null-ls")
-    
-    null_ls.setup({
-        sources = {
-            -- Lua
-            null_ls.builtins.formatting.stylua,
+  local null_ls = require "null-ls"
 
-            -- JavaScript
-            null_ls.builtins.formatting.prettier,
-            null_ls.builtins.diagnostics.eslint_d,
-        },
-    })
+  null_ls.setup {
+    sources = {
+      -- Lua
+      null_ls.builtins.formatting.stylua,
+
+      -- JavaScript
+      null_ls.builtins.formatting.prettier,
+      null_ls.builtins.diagnostics.eslint_d,
+    },
+  }
 end
 
 return {
-	"nvimtools/none-ls.nvim",
-	config = config,
-    keys = {
-        -- normal mode mappings
-        mapvimkey("<leader>gf", "Format buffer")
-    }
+  "nvimtools/none-ls.nvim",
+  config = config,
+  keys = {
+    -- normal mode mappings
+    mapvimkey("<leader>gf", "Format buffer"),
+  },
 }

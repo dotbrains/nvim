@@ -2,6 +2,6 @@
 -- see: https://github.com/folke/neoconf.nvim
 
 return {
-	{ "folke/neoconf.nvim", cmd = "Neoconf" },
-	"folke/neodev.nvim",
+  { "folke/neoconf.nvim", cmd = "Neoconf" },
+  "folke/neodev.nvim",
 }

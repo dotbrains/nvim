@@ -2,5 +2,5 @@
 -- See: https://github.com/nvim-neotest/nvim-nio
 
 return {
-    "nvim-neotest/nvim-nio"
+  "nvim-neotest/nvim-nio",
 }

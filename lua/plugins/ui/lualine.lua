@@ -2,16 +2,16 @@
 -- see: https://github.com/nvim-lualine/lualine.nvim
 
 local config = function()
-	local theme_module = require("config.theme")
-	require("lualine").setup({
-		options = {
-			theme = theme_module.current_theme,
-		},
-	})
+  local theme_module = require "config.theme"
+  require("lualine").setup {
+    options = {
+      theme = theme_module.current_theme,
+    },
+  }
 end
 
 return {
-	"nvim-lualine/lualine.nvim",
-	lazy = false,
-	config = config,
+  "nvim-lualine/lualine.nvim",
+  lazy = false,
+  config = config,
 }
