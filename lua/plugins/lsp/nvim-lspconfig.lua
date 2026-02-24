@@ -15,12 +15,12 @@ local config = function()
   end
 
   -- Global config for all LSP servers
-  vim.lsp.config('*', {
+  vim.lsp.config("*", {
     capabilities = capabilities,
   })
 
   -- LspAttach autocmd replaces per-server on_attach
-  vim.api.nvim_create_autocmd('LspAttach', {
+  vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
       local client = vim.lsp.get_client_by_id(args.data.client_id)
       on_attach(client, args.buf)
@@ -28,7 +28,7 @@ local config = function()
   })
 
   -- lua
-  vim.lsp.config('lua_ls', {
+  vim.lsp.config("lua_ls", {
     settings = { -- custom settings for lua
       Lua = {
         -- make the language server recognize "vim" global
@@ -47,12 +47,12 @@ local config = function()
   })
 
   -- json
-  vim.lsp.config('jsonls', {
+  vim.lsp.config("jsonls", {
     filetypes = { "json", "jsonc" },
   })
 
   -- python
-  vim.lsp.config('pyright', {
+  vim.lsp.config("pyright", {
     settings = {
       pyright = {
         disableOrganizeImports = false,
@@ -67,7 +67,7 @@ local config = function()
   })
 
   -- typescript
-  vim.lsp.config('ts_ls', {
+  vim.lsp.config("ts_ls", {
     filetypes = {
       "typescript",
     },
@@ -75,12 +75,12 @@ local config = function()
   })
 
   -- bash
-  vim.lsp.config('bashls', {
+  vim.lsp.config("bashls", {
     filetypes = { "sh", "aliasrc" },
   })
 
   -- typescriptreact, javascriptreact, css, sass, scss, less, svelte, vue
-  vim.lsp.config('emmet_ls', {
+  vim.lsp.config("emmet_ls", {
     filetypes = {
       "typescriptreact",
       "javascriptreact",
@@ -96,10 +96,10 @@ local config = function()
   })
 
   -- docker
-  vim.lsp.config('dockerls', {})
+  vim.lsp.config("dockerls", {})
 
   -- C/C++
-  vim.lsp.config('clangd', {
+  vim.lsp.config("clangd", {
     cmd = {
       "clangd",
       "--offset-encoding=utf-16",
@@ -120,7 +120,7 @@ local config = function()
   local clangformat = require "efmls-configs.formatters.clang_format"
 
   -- configure efm server
-  vim.lsp.config('efm', {
+  vim.lsp.config("efm", {
     filetypes = {
       "lua",
       "python",
@@ -171,15 +171,15 @@ local config = function()
 
   -- Enable all configured LSP servers
   vim.lsp.enable({
-    'lua_ls',
-    'jsonls',
-    'pyright',
-    'ts_ls',
-    'bashls',
-    'emmet_ls',
-    'dockerls',
-    'clangd',
-    'efm',
+    "lua_ls",
+    "jsonls",
+    "pyright",
+    "ts_ls",
+    "bashls",
+    "emmet_ls",
+    "dockerls",
+    "clangd",
+    "efm",
   })
 end
 
