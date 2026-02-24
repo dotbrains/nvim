@@ -7,7 +7,7 @@
 -- see: https://github.com/ggandor/leap.nvim
 
 return {
-  "ggandor/leap.nvim",
+  url = "https://codeberg.org/andyg/leap.nvim",
   event = "BufEnter",
   config = function()
     local leap = require "leap"

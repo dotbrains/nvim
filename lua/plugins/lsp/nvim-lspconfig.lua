@@ -7,7 +7,6 @@ local diagnostic_signs = require("util.icons").diagnostic_signs
 local config = function()
   require("neoconf").setup {}
   local cmp_nvim_lsp = require "cmp_nvim_lsp"
-  local lspconfig = require "lspconfig"
   local capabilities = cmp_nvim_lsp.default_capabilities()
 
   for type, icon in pairs(diagnostic_signs) do
@@ -15,10 +14,21 @@ local config = function()
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
   end
 
-  -- lua
-  lspconfig.lua_ls.setup {
+  -- Global config for all LSP servers
+  vim.lsp.config('*', {
     capabilities = capabilities,
-    on_attach = on_attach,
+  })
+
+  -- LspAttach autocmd replaces per-server on_attach
+  vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(args)
+      local client = vim.lsp.get_client_by_id(args.data.client_id)
+      on_attach(client, args.buf)
+    end,
+  })
+
+  -- lua
+  vim.lsp.config('lua_ls', {
     settings = { -- custom settings for lua
       Lua = {
         -- make the language server recognize "vim" global
@@ -34,19 +44,15 @@ local config = function()
         },
       },
     },
-  }
+  })
 
   -- json
-  lspconfig.jsonls.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
+  vim.lsp.config('jsonls', {
     filetypes = { "json", "jsonc" },
-  }
+  })
 
   -- python
-  lspconfig.pyright.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
+  vim.lsp.config('pyright', {
     settings = {
       pyright = {
         disableOrganizeImports = false,
@@ -58,29 +64,23 @@ local config = function()
         },
       },
     },
-  }
+  })
 
   -- typescript
-  lspconfig.ts_ls.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
+  vim.lsp.config('ts_ls', {
     filetypes = {
       "typescript",
     },
-    root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
-  }
+    root_markers = { "package.json", "tsconfig.json", ".git" },
+  })
 
   -- bash
-  lspconfig.bashls.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
+  vim.lsp.config('bashls', {
     filetypes = { "sh", "aliasrc" },
-  }
+  })
 
   -- typescriptreact, javascriptreact, css, sass, scss, less, svelte, vue
-  lspconfig.emmet_ls.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
+  vim.lsp.config('emmet_ls', {
     filetypes = {
       "typescriptreact",
       "javascriptreact",
@@ -93,23 +93,18 @@ local config = function()
       "vue",
       "html",
     },
-  }
+  })
 
   -- docker
-  lspconfig.dockerls.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
+  vim.lsp.config('dockerls', {})
 
   -- C/C++
-  lspconfig.clangd.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
+  vim.lsp.config('clangd', {
     cmd = {
       "clangd",
       "--offset-encoding=utf-16",
     },
-  }
+  })
 
   local luacheck = require "efmls-configs.linters.luacheck"
   local stylua = require "efmls-configs.formatters.stylua"
@@ -125,7 +120,7 @@ local config = function()
   local clangformat = require "efmls-configs.formatters.clang_format"
 
   -- configure efm server
-  lspconfig.efm.setup {
+  vim.lsp.config('efm', {
     filetypes = {
       "lua",
       "python",
@@ -172,7 +167,20 @@ local config = function()
         cpp = { clangformat, cpplint },
       },
     },
-  }
+  })
+
+  -- Enable all configured LSP servers
+  vim.lsp.enable({
+    'lua_ls',
+    'jsonls',
+    'pyright',
+    'ts_ls',
+    'bashls',
+    'emmet_ls',
+    'dockerls',
+    'clangd',
+    'efm',
+  })
 end
 
 return {
