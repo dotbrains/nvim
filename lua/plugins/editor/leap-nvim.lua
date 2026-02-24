@@ -10,7 +10,7 @@ return {
   url = "https://codeberg.org/andyg/leap.nvim",
   event = "BufEnter",
   config = function()
-    local leap = require "leap"
+    require "leap"
     -- Set up keymaps as recommended in :help leap-mappings
     vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap-forward)")
     vim.keymap.set({ "n", "x", "o" }, "S", "<Plug>(leap-backward)")

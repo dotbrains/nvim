@@ -36,23 +36,18 @@ return {
     vim.g.lazygit_use_custom_config_file_path = 0
     vim.g.lazygit_config_file_path = {}
 
-    -- Function to disable space as leader key
-    local function disable_space_leader()
-      vim.api.nvim_set_keymap("n", "<leader>", "<nop>", { noremap = true, silent = true })
-    end
-
-    -- Function to restore space as leader key
-    local function restore_space_leader()
-      vim.api.nvim_set_keymap("n", "<leader>", " ", { noremap = true, silent = true })
-    end
-
     -- Autocommand to disable space when LazyGit is opened
-    vim.cmd [[
-        augroup LazyGitKeymap
-          autocmd!
-          autocmd User LazyGitOpen lua disable_space_leader()
-          autocmd User LazyGitClose lua restore_space_leader()
-        augroup END
-      ]]
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "LazyGitOpen",
+      callback = function()
+        vim.api.nvim_set_keymap("n", "<leader>", "<nop>", { noremap = true, silent = true })
+      end,
+    })
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "LazyGitClose",
+      callback = function()
+        vim.api.nvim_set_keymap("n", "<leader>", " ", { noremap = true, silent = true })
+      end,
+    })
   end,
 }
