@@ -170,7 +170,7 @@ local config = function()
   })
 
   -- Enable all configured LSP servers
-  vim.lsp.enable({
+  vim.lsp.enable {
     "lua_ls",
     "jsonls",
     "pyright",
@@ -180,7 +180,7 @@ local config = function()
     "dockerls",
     "clangd",
     "efm",
-  })
+  }
 end
 
 return {
