@@ -328,8 +328,7 @@ If you find bugs or have suggestions, please [open an issue](https://github.com/
 
 ## 📝 License
 
-This project is licensed under the terms found in [LICENSE](LICENSE).
-
+This project is licensed under the [PolyForm Shield License 1.0.0](https://polyformproject.org/licenses/shield/1.0.0/) — see [LICENSE](LICENSE) for details.
 ## 🙏 Acknowledgments
 
 Built with inspiration from the Neovim community and various dotfile configurations.
