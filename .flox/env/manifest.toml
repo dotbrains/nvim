@@ -1,0 +1,20 @@
+version = 1
+
+# Reproducible toolchain for developing the Neovim configuration.
+#
+# Activate with `flox activate` from the nvim/ directory to get neovim,
+# stylua, lua, and luarocks for the Makefile and CI-style checks.
+
+[install]
+neovim.pkg-path = "neovim"
+stylua.pkg-path = "stylua"
+lua.pkg-path = "lua"
+luarocks.pkg-path = "luarocks"
+
+[options]
+systems = [
+  "aarch64-darwin",
+  "x86_64-darwin",
+  "aarch64-linux",
+  "x86_64-linux",
+]
