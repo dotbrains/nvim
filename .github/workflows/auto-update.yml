@@ -6,11 +6,16 @@ on:
     - cron: '0 9 * * 1'
   workflow_dispatch: # Allow manual trigger
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   update-plugins:
     name: Check for Plugin Updates
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 20
+
     permissions:
       contents: write
       pull-requests: write
