@@ -6,11 +6,16 @@ on:
   pull_request:
     branches: [main]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   lint-and-format:
     name: Lint and Format Check
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 15
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -41,7 +46,8 @@ jobs:
   neovim-test:
     name: Test Neovim Configuration
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 15
+
     strategy:
       matrix:
         neovim-version: ['stable', 'nightly']
@@ -80,7 +86,8 @@ jobs:
   documentation:
     name: Check Documentation
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 15
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
