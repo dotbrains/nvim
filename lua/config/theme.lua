@@ -2,8 +2,22 @@
 local M = {}
 
 -- Available themes
-M.themes = { "gruvbox", "nord", "catppuccin" }
+M.themes = {
+  "gruvbox",
+  "nord",
+  "catppuccin",
+  "tokyonight",
+  "rose-pine",
+  "dracula",
+  "everforest",
+  "kanagawa",
+  "solarized",
+}
 M.current_theme = vim.env.SMU_THEME or "gruvbox"
+
+local theme_aliases = {
+  ["tokyo-night"] = "tokyonight",
+}
 
 -- Function to switch to next theme
 function M.switch_theme()
@@ -25,6 +39,8 @@ end
 
 -- Function to set a specific theme
 function M.set_theme(theme_name)
+  theme_name = theme_aliases[theme_name] or theme_name
+
   local success, err = pcall(function()
     vim.cmd("colorscheme " .. theme_name)
     M.current_theme = theme_name
