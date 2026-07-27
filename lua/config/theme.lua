@@ -2,8 +2,8 @@
 local M = {}
 
 -- Available themes
-M.themes = { "nord", "gruvbox" }
-M.current_theme = "gruvbox" -- default theme
+M.themes = { "gruvbox", "nord", "catppuccin" }
+M.current_theme = vim.env.SMU_THEME or "gruvbox"
 
 -- Function to switch to next theme
 function M.switch_theme()
