@@ -3,7 +3,7 @@
 [![CI](https://github.com/dotbrains/nvim/actions/workflows/ci.yml/badge.svg)](https://github.com/dotbrains/nvim/actions/workflows/ci.yml)
 [![Auto Update](https://github.com/dotbrains/nvim/actions/workflows/auto-update.yml/badge.svg)](https://github.com/dotbrains/nvim/actions/workflows/auto-update.yml)
 [![Release](https://github.com/dotbrains/nvim/actions/workflows/release.yml/badge.svg)](https://github.com/dotbrains/nvim/actions/workflows/release.yml)
-[![License: PolyForm Shield 1.0.0](https://img.shields.io/badge/License-PolyForm%20Shield%201.0.0-blue.svg)](https://polyformproject.org/licenses/shield/1.0.0/)
+[![License: PolyForm Shield 1.0.0](https://img.shields.io/badge/License-PolyForm%20Shield%201.0.0-blue.svg)](https://polyformproject.org/licenses/shield/1.0.0)
 
 > A modern, organized, and feature-rich Neovim configuration built for productivity
 
@@ -329,7 +329,7 @@ If you find bugs or have suggestions, please [open an issue](https://github.com/
 
 ## 📝 License
 
-This project is licensed under the [PolyForm Shield License 1.0.0](https://polyformproject.org/licenses/shield/1.0.0/) — see [LICENSE](LICENSE) for details.
+This project is licensed under the [PolyForm Shield License 1.0.0](https://polyformproject.org/licenses/shield/1.0.0) — see [LICENSE](LICENSE) for details.
 ## 🙏 Acknowledgments
 
 Built with inspiration from the Neovim community and various dotfile configurations.
