@@ -1,0 +1,7 @@
+id = "nvim"
+
+[adapters.rcm]
+path = "."
+
+[adapters.home-manager]
+path = "home-manager.nix"
